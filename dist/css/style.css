@@ -623,6 +623,11 @@ section {
   grid-auto-flow: dense;
   gap: 15px;
 }
+@media screen and (max-width: 591px) {
+  .cards__text {
+    font-size: 14px;
+  }
+}
 .cards__item {
   background-color: #fff;
   padding: 20px;
@@ -643,6 +648,18 @@ section {
 }
 .cards__icon {
   margin-bottom: 42px;
+  width: 60px;
+  height: 60px;
+}
+@media screen and (max-width: 591px) {
+  .cards__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+}
+.cards__icon img {
+  width: 100%;
 }
 .gallery {
   transition: transform 8s ease 0s;
