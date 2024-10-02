@@ -622,6 +622,13 @@ section {
   left: 10px;
   bottom: 10px;
   color: white;
+  font-size: 13px;
+}
+@media screen and (min-width: 600px) {
+  .katalog__link {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 .top {
@@ -880,7 +887,9 @@ section {
 }
 .position:hover {
   cursor: pointer;
-  opacity: 0.7;
+}
+.position:hover img {
+  transform: scale(1.5);
 }
 
 .forms {
@@ -1019,6 +1028,18 @@ input[type=range] {
   width: 100%;
   height: 100%;
   padding: 20px;
+  position: relative;
+}
+.single__return {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+@media screen and (max-width: 860px) {
+  .single__return {
+    font-size: 14px;
+  }
 }
 .single__flex {
   display: flex;
@@ -1052,10 +1073,17 @@ input[type=range] {
   width: 100%;
   height: 100%;
 }
+.kartinki__big:hover {
+  cursor: pointer;
+}
+.kartinki__big:hover img {
+  transform: scale(1.5);
+}
 @media screen and (max-width: 860px) {
   .kartinki__big {
     width: 95%;
     height: auto;
+    margin-top: 30px;
   }
 }
 .kartinki__row {
