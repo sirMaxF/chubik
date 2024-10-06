@@ -122,6 +122,7 @@
     &__item {
         display: block;
         color: black;
+        text-decoration: underline;
 
         &:hover {
             color: $kor;

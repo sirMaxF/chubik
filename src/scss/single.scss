@@ -84,7 +84,7 @@
         width: 40px;
         height: 40px;
         position: absolute;
-        z-index: 100;
+        // z-index: 100;
         background-color: #fff;
         border-radius: 50%;
 
@@ -92,6 +92,7 @@
             top: 50%;
             left: 10px;
             transform: translate(0, -50%);
+            display: none;
         }
 
         &_right {
@@ -204,20 +205,69 @@
 
 //! купое изображение
 
-.single__flex {
-    .vozvrat {
-        // z-index: 100;
+// .single__flex {
+//     .vozvrat__overlay {
+//         z-index: 1000;
+//     }
+//     .vozvrat {
+//         // z-index: 100;
 
-        &__container {
-            width: 800px;
-            height: 600px;
-            background-size: cover;
+//         &._active {
+//             display: block;
+//         }
 
-            @media screen and (max-width: 808px) {
-                width: 95%;
-                height: 70vh;
-                background-position: 50% 50%;
-            }
+//         &__container {
+//             width: 800px;
+//             height: 600px;
+//             background-size: cover;
+
+//             @media screen and (max-width: 808px) {
+//                 width: 95%;
+//                 height: 70vh;
+//                 background-position: 50% 50%;
+//             }
+//         }
+//     }
+// }
+
+.popnew {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    * {
+        text-align: left;
+    }
+
+    &__overlay {
+        position: relative;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        @extend %flexCenter;
+        z-index: 1;
+    }
+
+    &__container {
+        z-index: 2;
+        border-radius: 20px;
+        width: 400px;
+        height: 480px;
+        background-color: #fff;
+        padding: 20px;
+
+        width: 800px;
+        height: 600px;
+        background-size: cover;
+
+        @media screen and (max-width: 808px) {
+            width: 95%;
+            height: 70vh;
+            background-position: 50% 50%;
         }
     }
 }

@@ -110,14 +110,15 @@ try {
 //! кнопка возврата на главной
 
 try {
-    const detailsButton = document.querySelector('.details__button');
+    const detailsButton = document.querySelector('.details__button')
     const vozvratOverlay = document.querySelector('.vozvrat__overlay');
-
+    const vozvratContaine = document.querySelector('.vozvrat__container')
     detailsButton.addEventListener('click', () => {
         window.vozvrat.style.display = 'block';
     })
 
     vozvratOverlay.addEventListener('click', (e) => {
+        alert('ff')
         if (!e.target.classList.contains('vozvrat__overlay')) {
             return false;
         }
@@ -183,11 +184,11 @@ try {
         kartinkiBig && (kartinkiBig.firstElementChild.src = kartinkiSmall[0].firstElementChild.src);
     };
 
-    kartinkiSmall.forEach(value => value.addEventListener('click', () => {
-        const src = value.firstElementChild.src;
-        kartinkiBig.firstElementChild.src = src;
-        window.BlowupLens.style.backgroundImage = `url(${src})`;
-    }))
+    // kartinkiSmall.forEach(value => value.addEventListener('click', () => {
+    //     const src = value.firstElementChild.src;
+    //     kartinkiBig.firstElementChild.src = src;
+    //     window.BlowupLens.style.backgroundImage = `url(${src})`;
+    // }))
     // }
 
 } catch (error) {
@@ -432,47 +433,89 @@ try {
 
 // }
 
+//! переключение галереи
+
 try {
-    const detailsButton = document.querySelector('.kartinki__big');
-    const vozvratOverlay = document.querySelector('.vozvrat__overlay');
-    const vozvratContaine = document.querySelector('.vozvrat__container')
+    const kartinkiBig = document.querySelector('.kartinki__big');
+    const popnewOverlay = document.querySelector('.popnew__overlay');
+    const popnewContainer = document.querySelector('.popnew__container')
+    const vozvratNew = document.querySelector('.vozvrat_new');
 
     const kartinkiSmall = document.querySelectorAll('.kartinki__small');
     let count = 0;
 
     // window.onload = () => {
-    if (detailsButton) {
-        detailsButton.addEventListener('click', (e) => {
+    if (kartinkiBig) {
+        kartinkiBig.addEventListener('click', (e) => {
             if (e.target.parentElement.classList.contains('kartinki__prkl')) {
 
-                if (e.target.parentElement.classList.contains('kartinki__prkl_right') && ((kartinkiSmall.length - 1) > count)) {
-                    detailsButton.firstElementChild.src = kartinkiSmall[++count].firstElementChild.src;
+                if (e.target.parentElement.classList.contains('kartinki__prkl_right')) {
+                    ++count;
+                    console.log(count)
+                    if (count >= (kartinkiSmall.length - 1)) {
+                        document.querySelector('.kartinki__prkl_right').style.display = 'none';
+                        kartinkiBig.firstElementChild.src = kartinkiSmall[count].firstElementChild.src;
+                    } else {
+                        kartinkiBig.firstElementChild.src = kartinkiSmall[count].firstElementChild.src;
+                    }
+                    document.querySelector('.kartinki__prkl_left').style.display = 'block';
 
                 }
 
-                if (e.target.parentElement.classList.contains('kartinki__prkl_left') && ((kartinkiSmall.length - 1) > count)) {
-                    detailsButton.firstElementChild.src = kartinkiSmall[--count].firstElementChild.src;
+                if (e.target.parentElement.classList.contains('kartinki__prkl_left')) {
+                    --count;
+                    if (count <= 0) {
+                        document.querySelector('.kartinki__prkl_left').style.display = 'none';
+                        kartinkiBig.firstElementChild.src = kartinkiSmall[count].firstElementChild.src;
+                    } else {
+                        kartinkiBig.firstElementChild.src = kartinkiSmall[count].firstElementChild.src;
+                    }
+                    document.querySelector('.kartinki__prkl_right').style.display = 'block';
+
                 }
 
                 return false;
             }
-            vozvratContaine.style.backgroundImage = `url(${detailsButton.firstElementChild.src})`;
-            window.vozvrat2.style.display = 'block';
+
+
+            popnewContainer.style.backgroundImage = `url(${kartinkiBig.firstElementChild.src})`;
+            // vozvratNew.classList.add('_active')
+            window.popnew.style.display = 'block';
         })
 
-        vozvratOverlay.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('vozvrat__overlay')) {
-                return false;
-            }
-            window.vozvrat2.style.display = 'none';
-            console.log(window.vozvrat2.style.display)
 
-        })
     }
     // }
 
+    popnewOverlay.addEventListener('click', (el) => {
+        if (!el.target.classList.contains('popnew__overlay')) {
+            return false;
+        }
+        window.popnew.style.display = 'none';
+        // vozvratNew.classList.remove('_active')
 
+    })
 
 } catch (error) {
     console.log(error)
+}
+
+//! свайпы
+
+try {
+
+
+    // var square = document.querySelector('.square');
+    // var manager = new Hammer.Manager(square);
+    // var Swipe = new Hammer.Swipe();
+    // manager.add(Swipe);
+    // manager.on('swipe', function (e) {
+    //     var direction = e.offsetDirection;
+    //     if (direction === 2) {
+    //         detailsButton.firstElementChild.src = kartinkiSmall[1].firstElementChild.src;
+
+    //     }
+    // });
+} catch (error) {
+
 }
