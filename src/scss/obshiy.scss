@@ -1,0 +1,225 @@
+.obshiy {
+    padding: 80px 0;
+    &__container {
+    }
+
+    &__title {
+        color: #5f6368;
+        font-size: 72px;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    &__subtitle {
+        color: #5f6368;
+        margin-bottom: 40px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template: 1fr / 250px 1fr;
+    }
+}
+.container {
+}
+.select {
+    &__forms {
+    }
+
+    &__positions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 276px);
+        gap: 20px;
+    }
+}
+.position {
+    height: 415px;
+    opacity: 0;
+    transition-duration: 3.7s;
+    width: 276px;
+    display: grid;
+    grid-template: repeat(4, auto) / 1fr;
+    gap: 20px;
+    &__image {
+        width: 276px;
+        height: 276px;
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__title {
+        font-weight: bold;
+    }
+
+    &__price {
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    &__button {
+        background-color: $kor;
+        border-radius: 20px;
+        @extend %flexCenter;
+        width: 162px;
+        height: 35px;
+        color: white;
+        padding: 15px;
+        font-weight: bold;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        img {
+            transform: scale(1.5);
+        }
+    }
+}
+
+//! формы
+
+.forms {
+    width: 178px;
+    & * {
+        @include marginB(15px);
+        color: #5f6368;
+    }
+
+    p {
+        margin-top: 40px;
+    }
+
+    span {
+        font-size: 13px;
+    }
+
+    &__rzm {
+        margin-top: 0;
+        width: 30px;
+    }
+
+    &__close {
+        color: #5f6368;
+        font-size: 45px;
+        position: absolute;
+        z-index: 334;
+        right: 20px;
+        top: 20px;
+        display: none;
+
+        &._active {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 559px) {
+        display: none;
+    }
+
+    &._active {
+        overflow-y: scroll;
+        font-size: 16px;
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 100%;
+        background-color: #fff;
+        z-index: 333;
+        padding: 15px 76px;
+        // padding-top: 70px;
+
+        p {
+            margin-top: 15px;
+        }
+    }
+}
+
+.filters {
+    cursor: pointer;
+    display: none;
+    // opacity: 0;
+    // visibility: hidden;
+    background-color: #5f6368;
+    @extend %flexCenter;
+    width: 120px;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 559px) {
+        display: flex;
+        // opacity: 1;
+        // visibility: visible;
+    }
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.custom-checkbox + label::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.custom-checkbox:checked + label::before {
+    border-color: #5f6368;
+    background-color: #5f6368;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #b3d7ff;
+}
+/* стили для активного состояния чекбокса (при нажатии на него) */
+.custom-checkbox:not(:disabled):active + label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus + label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked) + label::before {
+    border-color: #80bdff;
+}
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled + label::before {
+    background-color: #e9ecef;
+}
+
+//! стиль RANGE
+
+input[type="range"] {
+    width: 101px;
+}

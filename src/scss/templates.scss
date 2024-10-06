@@ -1,0 +1,76 @@
+// переменныe
+
+$fontfamily: Arial; // задать свой
+
+$kor: #c3936c;
+
+// шаблоны
+
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flexSb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%flexColumnCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+%flexColumnSb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// миксины
+
+@mixin marginR($px) {
+    margin-right: $px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+@mixin marginB($px) {
+    margin-bottom: $px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin brd($color) {
+    border: 1px solid $color;
+}
+
+@mixin shadow($color) {
+    position: relative;
+
+    &:after {
+        content: "";
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: background-color 0.3s ease 0s;
+    }
+
+    &:hover {
+        &:after {
+            background-color: $color;
+        }
+    }
+}
