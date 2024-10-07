@@ -30,6 +30,16 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, 276px);
         gap: 20px;
+
+        @media screen and (max-width: 559px) {
+            grid-template-rows: 300px;
+            grid-auto-flow: column;
+        }
+    }
+
+    @media screen and (max-width: 559px) {
+        overflow: hidden;
+        height: 415px;
     }
 }
 .position {

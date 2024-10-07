@@ -440,6 +440,7 @@ try {
     const popnewOverlay = document.querySelector('.popnew__overlay');
     const popnewContainer = document.querySelector('.popnew__container')
     const vozvratNew = document.querySelector('.vozvrat_new');
+    const popnewClose = document.querySelector('.popnew__close');
 
     const kartinkiSmall = document.querySelectorAll('.kartinki__small');
     let count = 0;
@@ -492,30 +493,40 @@ try {
             return false;
         }
         window.popnew.style.display = 'none';
-        // vozvratNew.classList.remove('_active')
-
+    })
+    popnewClose.addEventListener('click', (el) => {
+        window.popnew.style.display = 'none';
     })
 
 } catch (error) {
     console.log(error)
 }
 
-//! свайпы
+//! свайпы галерея товаров
 
 try {
 
+    const selectPositions = document.querySelector('.select__positions');
 
-    // var square = document.querySelector('.square');
-    // var manager = new Hammer.Manager(square);
-    // var Swipe = new Hammer.Swipe();
-    // manager.add(Swipe);
-    // manager.on('swipe', function (e) {
-    //     var direction = e.offsetDirection;
-    //     if (direction === 2) {
-    //         detailsButton.firstElementChild.src = kartinkiSmall[1].firstElementChild.src;
+    var manager = new Hammer.Manager(selectPositions);
+    var Swipe = new Hammer.Swipe();
+    manager.add(Swipe);
 
-    //     }
-    // });
+    var deltaX = 0;
+    var deltaY = 0;
+
+    manager.on('swipe', function (e) {
+        deltaX = deltaX + e.deltaX;
+        if (deltaX > 50) {
+            console.log(deltaX);
+            deltaX = 0;
+        };
+        var direction = e.offsetDirection;
+        var translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
+        if (direction === 4 || direction === 2) {
+            selectPositions.style.transform = translate3d;
+        }
+    });
 } catch (error) {
 
 }

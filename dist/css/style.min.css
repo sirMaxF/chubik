@@ -848,6 +848,18 @@ section {
   grid-template-columns: repeat(auto-fit, 276px);
   gap: 20px;
 }
+@media screen and (max-width: 559px) {
+  .select__positions {
+    grid-template-rows: 300px;
+    grid-auto-flow: column;
+  }
+}
+@media screen and (max-width: 559px) {
+  .select {
+    overflow: hidden;
+    height: 415px;
+  }
+}
 
 .position {
   height: 415px;
@@ -1078,6 +1090,9 @@ input[type=range] {
   width: 100%;
   height: 100%;
 }
+.kartinki__big:hover img.uvel {
+  transform: scale(1.5);
+}
 @media screen and (max-width: 860px) {
   .kartinki__big {
     width: 95%;
@@ -1203,7 +1218,18 @@ input[type=range] {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
+.popnew__close {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.popnew__close img {
+  width: 100%;
+}
 .popnew__container {
+  position: relative;
   z-index: 2;
   border-radius: 20px;
   width: 400px;
