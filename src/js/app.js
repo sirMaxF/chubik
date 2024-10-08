@@ -522,7 +522,7 @@ try {
             deltaX = 0;
         };
         var direction = e.offsetDirection;
-        var translate3d = 'translate3d(' + deltaX + 'px, 0, 0)';
+        var translate3d = 'translate3d(' + deltaX * 2.1 + 'px, 0, 0)';
         if (direction === 4 || direction === 2) {
             selectPositions.style.transform = translate3d;
         }
