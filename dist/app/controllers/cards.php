@@ -66,10 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
     $coll = bezop($_POST['coll']) ?? '';
     $type = bezop($_POST['type']) ?? '';
     $artikul = bezop($_POST['artikul']) ?? '';
+    $opis = bezop($_POST['opis']) ?? '';
     $nalichie = 1;
 
 
-    $stmt = $connect->prepare('insert into tovary (name, price, size, collection, type, artikul, nalichie, img_1, img_2, img_3, img_4, img_5, img_6, img_7) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    $stmt = $connect->prepare('insert into tovary (name, price, size, collection, type, artikul, nalichie, opis, img_1, img_2, img_3, img_4, img_5, img_6, img_7) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
     $stmt->bindValue(1, $name, SQLITE3_TEXT);
     $stmt->bindValue(2, $price, SQLITE3_TEXT);
     $stmt->bindValue(3, $size, SQLITE3_TEXT);
@@ -77,11 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
     $stmt->bindValue(5, $type, SQLITE3_TEXT);
     $stmt->bindValue(6, $artikul, SQLITE3_INTEGER);
     $stmt->bindValue(7, $nalichie, SQLITE3_INTEGER);
-    for ($i = 8; $i < 15; $i++) {
-        if (!empty($_FILES['img']['name'][$i - 8])) {
-            // print_r($_FILES['img']['name'][$i - 8]);
-            $stmt->bindValue($i, $_FILES['img']['name'][$i - 8], SQLITE3_TEXT);
-            move_uploaded_file($_FILES['img']['tmp_name'][$i - 8], FOR_FILES . $_FILES['img']['name'][$i - 8]);
+    $stmt->bindValue(8, $opis, SQLITE3_TEXT);
+    for ($i = 9; $i < 16; $i++) {
+        if (!empty($_FILES['img']['name'][$i - 9])) {
+            // print_r($_FILES['img']['name'][$i - 9]);
+            $stmt->bindValue($i, $_FILES['img']['name'][$i - 9], SQLITE3_TEXT);
+            move_uploaded_file($_FILES['img']['tmp_name'][$i - 9], FOR_FILES . $_FILES['img']['name'][$i - 9]);
         } else {
             $stmt->bindValue($i, '', SQLITE3_TEXT);
         }
@@ -146,9 +148,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
     $coll = bezop($_POST['coll']) ?? '';
     $type = bezop($_POST['type']) ?? '';
     $nalichie = bezop($_POST['nalichie']) ?? 0;
+    $opis = bezop($_POST['opis']) ?? 0;
     $artikul = bezop($_POST['artikul']) ?? 0;
 
-    $stmt = $connect->prepare('update tovary set name = ?, price = ?, size = ?, collection = ?, type = ?, nalichie=?, artikul=? where id = ?');
+    $stmt = $connect->prepare('update tovary set name = ?, price = ?, size = ?, collection = ?, type = ?, nalichie=?, artikul=?, opis=? where id = ?');
     $stmt->bindValue(1, $name, SQLITE3_TEXT);
     $stmt->bindValue(2, $price, SQLITE3_TEXT);
     $stmt->bindValue(3, $size, SQLITE3_TEXT);
@@ -156,8 +159,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
     $stmt->bindValue(5, $type, SQLITE3_TEXT);
     $stmt->bindValue(6, $nalichie, SQLITE3_INTEGER);
     $stmt->bindValue(7, $artikul, SQLITE3_INTEGER);
+    $stmt->bindValue(8, $opis, SQLITE3_TEXT);
 
-    $stmt->bindValue(8, $id, SQLITE3_INTEGER);
+    $stmt->bindValue(9, $id, SQLITE3_INTEGER);
     $stmt->execute();
 
     for ($i = 1; $i < 9; $i++) {

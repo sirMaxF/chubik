@@ -43,6 +43,10 @@
                     <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_1'] ?? '' ?>" alt=""></div>
                     <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_2'] ?? '' ?>" alt=""></div>
                     <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_3'] ?? '' ?>" alt=""></div>
+                    <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_4'] ?? '' ?>" alt=""></div>
+                    <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_5'] ?? '' ?>" alt=""></div>
+                    <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_6'] ?? '' ?>" alt=""></div>
+                    <div class="kartinki__small"><img src="<?= BASE_URL ?>assets/img/<?= $forSingle[0]['img_7'] ?? '' ?>" alt=""></div>
                 </div>
             </div>
             <div class="single__descr descr">
@@ -81,6 +85,7 @@
     <script src="<?= BASE_URL ?>assets/js/app.min.js"></script>
     <script>
         try {
+
             const singleForm = document.forms.singleForm;
             const vozvraSingle = document.querySelector('.vozvrat_single');
             const vozvratContainerSingle = document.querySelector('.vozvrat__container_single')
@@ -90,7 +95,7 @@
             const cartId = params.get('singleId');
             const nalichie = params.get('nalichie');
 
-            console.log(nalichie)
+            // console.log('fff', nalichie)
 
             if (nalichie == 0) {
                 vozvraSingle.style.display = 'block';

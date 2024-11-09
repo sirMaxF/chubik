@@ -33,6 +33,10 @@ if (!isset($_SESSION['admin'])) {
                             <p><input type="number" name="price" id="price" pattern="[0-9]" value="<?= $singleTovar['price'] ?? '' ?>"></p>
                             <p><label for="artikul">Артикул</label></p>
                             <p><input type="number" name="artikul" id="artikul" pattern="[0-9]" value="<?= $singleTovar['artikul'] ?? '' ?>" required></p>
+
+                            <p><label for="opis">Описание</label></p>
+                            <p><textarea rows="10" wrap="hard" cols="50" name="opis" id="opis" maxlength="20000" minlength="3"><?= $singleTovar['opis'] ?? '' ?></textarea></p>
+
                             <p><label for="size">Размер</label></p>
                             <span>для выбора нескольких значений зажмите Ctrl</span>
                             <p>
