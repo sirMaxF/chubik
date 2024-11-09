@@ -69,11 +69,7 @@
                     </select> -->
                     <p><input type="submit" name="" id="" value="Купить" class=""></p>
                 </form>
-                <div class="descr__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus reiciendis
-                    tempora sequi provident, velit, cupiditate officiis sunt voluptatibus vel ea aliquid, cumque odit!
-                    Maxime, dolorum. Corrupti necessitatibus, debitis dolore aliquam, quas corporis nemo quibusdam optio
-                    labore, dolores maiores expedita laboriosam eaque! Cumque blanditiis at ipsa reiciendis cum eum
-                    soluta dignissimos?</div>
+                <div class="descr__text"><?= $forSingle[0]['opis'] ?? '' ?></div>
             </div>
         </div>
     </main>
