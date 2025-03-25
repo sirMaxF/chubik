@@ -1,0 +1,74 @@
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        margin: 4rem 0;
+
+    }
+
+    .splide__slide {
+        padding: 6rem;
+        display: flex;
+        justify-content: center;
+        background: #ECF0F1;
+
+    }
+
+    .splide__slide__container {
+        width: 600px;
+        text-align: center;
+    }
+
+    .slide__content {
+        margin: 1rem 0;
+        font-size: 1.3rem;
+    }
+
+    .slide-img__wrapper {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .slide-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .slide-img__caption {
+        margin-left: 1rem;
+    }
+
+    .slide-img__caption span {
+        color: #2E86C1;
+        font-weight: 500;
+    }
+</style>
+
+<section class="splide" aria-label="Splide Basic HTML Example">
+    <h1 style="text-align: center; font-size: 21px; font-weight: bold;">Это Splide.js</h1>
+    <br>
+    <div class="splide__track">
+
+        <ul class="splide__list">
+            <li class="splide__slide">Slide 01</li>
+            <li class="splide__slide">Slide 02</li>
+            <li class="splide__slide">Slide 03</li>
+        </ul>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('.splide');
+        splide.mount();
+    });
+</script>

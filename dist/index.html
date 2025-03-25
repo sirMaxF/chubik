@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include('html/head.html', {
-"title": "Главная"
-})
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <!-- Подключаем JS слайдера -->
+  <!-- <script defer src="../js/modules/simple-adaptive-slider.js"></script> -->
+  <title>Главная</title>
+</head>
 
 <body>
-  @@include('html/header.html', {})
+  <header class="header">
+    <div class="header__container container">
+        <div class="header__grid">
+            <a href="index.html" class="header__logo">
+                <img src="./img/logo.png" alt="">
+            </a>
+            <nav class="header__menu menu">
+                <div class="menu__icon">☰</div>
+
+                <div class="menu__row">
+                    <a src="" class="menu__item">О нас</a>
+                    <div src="" class="menu__item">Каталог<div class="arrow">></div>
+                        <div class="menu__submenu submenu">
+                            <a href="obshchiy-katalog.html" class="submenu__item">Общий каталог</a>
+                            <a href="verhnyaya-odezhda.html" class="submenu__item">Верхняя одежда</a>
+                            <a href="flis-i-intersoft.html" class="submenu__item">Флис и интерсофт</a>
+                            <a href="odezhda-iz-lapshi.html" class="submenu__item">Лапша</a>
+                            <a href="letnyaya-odezhda.html" class="submenu__item">Лето</a>
+                        </div>
+                    </div>
+
+                    <a href="" class="menu__item">Галерея</a>
+                    <a href="" class="menu__item">Доставка</a>
+                    <a href="" class="menu__item">Возврат</a>
+                    <a href="" class="menu__item">Контакты</a>
+                </div>
+            </nav>
+            <div class="header__social social">
+                <div class="social__row">
+                    <a href="" class="social__item"><img src="img/icons/icons.svg#tel" alt=""></a>
+                    <a href="" class="social__item"><img src="img/icons/icons.svg#vk" alt=""></a>
+                    <a href="" class="social__item"><img src="img/icons/icons.svg#insta" alt=""></a>
+                    <a href="" class="social__item"><img src="img/icons/icons.svg#email" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
   <main class="main">
     <div class="main__carousel carousel">
       <div class="carousel__item _active"><img src="./img/IMG_4207-2.jpg" alt=""></div>
@@ -18,8 +64,128 @@
     </div>
     <!-- </div> -->
   </main>
-  @@include('html/slider1.html', {})
-  @@include('html/splide.html', {})
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+<section class="katalog2">
+    <h1 style="text-align: center; font-size: 21px; font-weight: bold;">Это свайпер</h1>
+    <br>
+    <style>
+        .sample-slider {
+            width: 600px;
+            height: 300px;
+        }
+
+        .sample-slider img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+    </style>
+
+    <div class="swiper sample-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <script>
+
+        const swiper = new Swiper('.sample-slider', {
+            pagination: {                       //pagination(dots)
+                el: '.swiper-pagination',
+            },
+            navigation: {                       //navigation(arrows)
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        })
+    </script>
+</section>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        margin: 4rem 0;
+
+    }
+
+    .splide__slide {
+        padding: 6rem;
+        display: flex;
+        justify-content: center;
+        background: #ECF0F1;
+
+    }
+
+    .splide__slide__container {
+        width: 600px;
+        text-align: center;
+    }
+
+    .slide__content {
+        margin: 1rem 0;
+        font-size: 1.3rem;
+    }
+
+    .slide-img__wrapper {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .slide-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .slide-img__caption {
+        margin-left: 1rem;
+    }
+
+    .slide-img__caption span {
+        color: #2E86C1;
+        font-weight: 500;
+    }
+</style>
+
+<section class="splide" aria-label="Splide Basic HTML Example">
+    <h1 style="text-align: center; font-size: 21px; font-weight: bold;">Это Splide.js</h1>
+    <br>
+    <div class="splide__track">
+
+        <ul class="splide__list">
+            <li class="splide__slide">Slide 01</li>
+            <li class="splide__slide">Slide 02</li>
+            <li class="splide__slide">Slide 03</li>
+        </ul>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('.splide');
+        splide.mount();
+    });
+</script>
   <section class="katalog">
     <div class="katalog__container container">
       <div class="katalog__title">Каталог товаров</div>
@@ -177,7 +343,53 @@
         </div>
       </div>
   </section>
-  @@include('html/footer.html', {})
+  <footer class="footer">
+    <div class="footer__container container">
+        <div class="footer__row">
+            <div class="footer__logo">
+                <img src="./img/logo_bel.png" alt="">
+            </div>
+            <nav class="footer__columns columns">
+                <!-- <div class="columns__item"> -->
+                <div class="columns__column column">
+                    <a href="" class="column__link">О нас</a>
+                    <a href="" class="column__link">Каталог</a>
+                </div>
+                <div class="columns__column column">
+                    <a href="" class="column__link">Home & Summer</a>
+                    <a href="" class="column__link">Winter</a>
+                    <a href="" class="column__link">Spring & autumn</a>
+                    <a href="" class="column__link">Base</a>
+                </div>
+                <div class="columns__column column">
+                    <a href="" class="column__link">Галерея</a>
+                    <a href="" class="column__link">Доставка</a>
+                </div>
+                <div class="columns__column column">
+                    <a href="" class="column__link">Возврат</a>
+                    <a href="" class="column__link">Контакты</a>
+                    <!-- </div> -->
+                </div>
+            </nav>
+            <div class="footer__social social">
+                <div class="social__row">
+                    <a href="" class="social__item"><img src="../img/icons/icons.svg#tel_bel" alt=""></a>
+                    <a href="" class="social__item"><img src="../img/icons/icons.svg#vk_bel" alt=""></a>
+                    <a href="" class="social__item"><img src="../img/icons/icons.svg#insta_bel" alt=""></a>
+                    <a href="" class="social__item"><img src="../img/icons/icons.svg#email_bel" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__info">ООО "Choubik"</div>
+            <div class="footer__info">ИНН 7720885494</div>
+            <div class="footer__info">info@choubik-store.ru</div>
+            <div class="footer__info">+7 (995) 300-37-24</div>
+            <div class="footer__info">Публичная оферта</div>
+            <div class="footer__info">Политика конфиденциальности</div>
+        </div>
+    </div>
+</footer>
   <script src="js/app.min.js"></script>
 </body>
 

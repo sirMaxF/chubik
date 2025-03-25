@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+<section class="katalog2">
+    <h1 style="text-align: center; font-size: 21px; font-weight: bold;">Это свайпер</h1>
+    <br>
+    <style>
+        .sample-slider {
+            width: 600px;
+            height: 300px;
+        }
+
+        .sample-slider img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+    </style>
+
+    <div class="swiper sample-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+            <div class="swiper-slide"><img src="./img/aaa.jpg"></div>
+            <div class="swiper-slide"><img src="./img/bbb.webp"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <script>
+
+        const swiper = new Swiper('.sample-slider', {
+            pagination: {                       //pagination(dots)
+                el: '.swiper-pagination',
+            },
+            navigation: {                       //navigation(arrows)
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        })
+    </script>
+</section>
